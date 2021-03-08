@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "parcel-build": "parcel build index.html && cp _redirects ./dist",
-    "serve": "parcel index.html",
-    "preinstall": "npx npm-force-resolutions"
+    "parcel-build": "parcel build index.html && cp _redirects ./dist/",
+    "serve": "parcel index.html"
   },
   "keywords": [],
   "author": "",
@@ -22,5 +21,8 @@
     "stylelint-prettier": "1.1.0",
     "stylelint-vscode": "7.0.0-6",
     "parcel-bundler": "1.12.4"
+  },
+  "dependencies": {
+    "html-literal": "^1.1.0"
   }
 }
