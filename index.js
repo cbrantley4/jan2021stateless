@@ -37,6 +37,12 @@ axios.get("http://jsonplaceholder.typicode.com/posts").then(response => {
   }
 });
 
+axios.get().then(response => {
+  state.Home.weather.city = response.name;
+  state.Home.weather.temp = response.main.temp;
+  state.Home.weather.description = response.weather.main;
+});
+
 // add menu toggle to bars icon in nav bar
 document
   .querySelector(".fa-bars")
