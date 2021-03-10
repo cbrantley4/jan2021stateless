@@ -1,30 +1,50 @@
 import { Header, Nav, Main, Footer } from "./components";
-import {
-  AddPicturesToGallery,
-  GalleryPictures,
-  PrintFormOnSubmit
-} from "./lib";
+import * as state from "./store";
 
-function render() {
+import Navigo from "navigo";
+import { capitalize } from "lodash";
+
+const router = new Navigo("/");
+
+router
+  .on({
+    "/": () => render(state.Home),
+    ":page": params => {
+      let page = capitalize(params.data.page);
+      render(state[page]);
+    }
+  })
+  .resolve();
+
+function render(st = state.Home) {
   document.querySelector("#root").innerHTML = `
-  ${Header()}
-  ${Nav()}
-  ${Main()}
+  ${Header(st)}
+  ${Nav(state.Links)}
+  ${Main(st)}
   ${Footer()}
-  `;
+`;
+
+  router.updatePageLinks();
 }
 
-render();
-
 // add menu toggle to bars icon in nav bar
-document.querySelector(".fa-bars").addEventListener("click", () => {
-  document.querySelector("nav > ul").classList.toggle("hidden--mobile");
-});
+document
+  .querySelector(".fa-bars")
+  .addEventListener("click", () =>
+    document.querySelector("nav > ul").classList.toggle("hidden--mobile")
+  );
 
 // populating gallery with pictures
-const gallerySection = document.querySelector("#gallery");
-AddPicturesToGallery(GalleryPictures, gallerySection);
+// const gallerySection = document.querySelector("#gallery");
+// using modules to populate gallery with pictures
+// AddPicturesToGallery(GalleryPictures, gallerySection);
 
-// handle form submission
-const form = document.querySelector("form");
-PrintFormOnSubmit(form);
+// handle form submission with PrintFormOnSubmit module
+// const form = document.querySelector("form");
+// PrintFormOnSubmit(form);
+
+// import {
+//   AddPicturesToGallery,
+//   GalleryPictures,
+//   PrintFormOnSubmit
+// } from "./lib";
