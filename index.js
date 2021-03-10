@@ -1,6 +1,6 @@
 import { Header, Nav, Main, Footer } from "./components";
 import * as state from "./store";
-
+import axios from "axios";
 import Navigo from "navigo";
 import { capitalize } from "lodash";
 
@@ -26,6 +26,12 @@ function render(st = state.Home) {
 
   router.updatePageLinks();
 }
+
+axios.get("http://jsonplaceholder.typicode.com/posts").then(response => {
+  response.data.forEach(post => {
+    state.Blog.posts.push(post);
+  });
+});
 
 // add menu toggle to bars icon in nav bar
 document
