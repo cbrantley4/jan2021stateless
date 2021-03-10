@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "parcel-build": "parcel build index.html && cp _redirects ./dist",
-    "serve": "parcel index.html",
-    "preinstall": "npx npm-force-resolutions"
+    "parcel-build": "parcel build index.html && cp _redirects ./dist/",
+    "serve": "parcel index.html"
   },
   "keywords": [],
   "author": "",
@@ -20,11 +19,19 @@
     "stylelint-config-prettier": "6.0.0",
     "stylelint-config-recommended": "3.0.0",
     "stylelint-prettier": "1.1.0",
+<<<<<<< HEAD
     "stylelint-vscode": "7.0.0-6"
   },
   "dependencies": {
     "lodash": "^4.17.21",
     "navigo": "^8.9.1",
     "parcel-bundler": "^1.12.3"
+=======
+    "stylelint-vscode": "7.0.0-6",
+    "parcel-bundler": "1.12.4"
+  },
+  "dependencies": {
+    "html-literal": "^1.1.0"
+>>>>>>> 552ec1d99d63f6f0fa82fc00e57e994cccfe6287
   }
 }

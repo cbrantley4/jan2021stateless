@@ -1,6 +1,7 @@
 import { Header, Nav, Main, Footer } from "./components";
 import * as state from "./store";
 
+<<<<<<< HEAD
 import Navigo from "navigo";
 import { capitalize } from "lodash";
 
@@ -17,6 +18,15 @@ router
   .resolve();
 
 function render(st = state.Home) {
+=======
+// import {
+//   AddPicturesToGallery,
+//   GalleryPictures,
+//   PrintFormOnSubmit
+// } from "./lib";
+
+function render(st) {
+>>>>>>> 552ec1d99d63f6f0fa82fc00e57e994cccfe6287
   document.querySelector("#root").innerHTML = `
   ${Header(st)}
   ${Nav(state.Links)}
@@ -24,8 +34,12 @@ function render(st = state.Home) {
   ${Footer()}
 `;
 
+<<<<<<< HEAD
   router.updatePageLinks();
 }
+=======
+render(state.Home);
+>>>>>>> 552ec1d99d63f6f0fa82fc00e57e994cccfe6287
 
 // add menu toggle to bars icon in nav bar
 document
