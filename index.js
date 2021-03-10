@@ -24,12 +24,8 @@ function render(st = state.Home) {
   ${Footer()}
 `;
 
-<<<<<<< HEAD
   router.updatePageLinks();
 }
-=======
-render(state.Home);
->>>>>>> 552ec1d99d63f6f0fa82fc00e57e994cccfe6287
 
 // add menu toggle to bars icon in nav bar
 document
