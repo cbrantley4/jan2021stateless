@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "dotenv": "^5.0.1",
     "html-literal": "^1.1.0",
     "lodash": "^4.17.21",
     "navigo": "^8.9.1",

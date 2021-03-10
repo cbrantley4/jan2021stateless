@@ -3,6 +3,7 @@ import * as state from "./store";
 import axios from "axios";
 import Navigo from "navigo";
 import { capitalize } from "lodash";
+import "./env";
 
 const router = new Navigo("/");
 
@@ -27,7 +28,7 @@ function render(st = state.Home) {
   router.updatePageLinks();
 }
 
-axios.get("http://jsonplaceholder.typicode.com/posts").then(response => {
+axios.get(`http://jsonplaceholder.typicode.com/posts`).then(response => {
   response.data.forEach(post => {
     state.Blog.posts.push(post);
   });
@@ -37,11 +38,15 @@ axios.get("http://jsonplaceholder.typicode.com/posts").then(response => {
   }
 });
 
-axios.get().then(response => {
-  state.Home.weather.city = response.name;
-  state.Home.weather.temp = response.main.temp;
-  state.Home.weather.description = response.weather.main;
-});
+axios
+  .get(
+    `http://api.openweathermap.org/data/2.5/weather?q=st.%20louis&appid=${process.env.OPEN_WEATHER_API}`
+  )
+  .then(response => {
+    state.Home.weather.city = response.name;
+    state.Home.weather.temp = response.main.temp;
+    state.Home.weather.description = response.weather.main;
+  });
 
 // add menu toggle to bars icon in nav bar
 document
